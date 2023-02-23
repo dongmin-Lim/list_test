@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from "./pages/Main";
+import Detail from "./pages/Detail";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Frame className="App">
+      <GlobalStyle />
+      <Router>
+        <Nav />
+        <Routes>
+          <Route>
+            <Route path="/" element={<Main />} />
+            <Route path="/detail/:detailNumber" element={<Detail />} />
+          </Route>
+        </Routes>
+      </Router>
+    </Frame>
   );
 }
 
 export default App;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+`;
+
+const Frame = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
