@@ -3,14 +3,12 @@ import styled, { createGlobalStyle } from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import Detail from "./pages/Detail";
-import Nav from "./components/Nav";
 
 function App() {
   return (
     <Frame className="App">
       <GlobalStyle />
       <Router>
-        <Nav />
         <Routes>
           <Route>
             <Route path="/" element={<Main />} />
@@ -29,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0 auto;
     text-align: center;
+    background-image: url("img/BG.png");
   }
 `;
 

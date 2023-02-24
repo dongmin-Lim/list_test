@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import DataTable, { createTheme } from "react-data-table-component";
 import { Link } from "react-router-dom";
+import WorkList from "../components/WorkList";
 
 function Main() {
   const [noticeList, setNoticeList] = useState([]);
@@ -92,7 +93,7 @@ function Main() {
 
   return (
     <TableBox>
-      <DataTable
+      {/* <DataTable
         customStyles={customStyles}
         conditionalRowStyles={conditionalRowStyles}
         columns={columns}
@@ -102,7 +103,8 @@ function Main() {
         pagination={true}
         paginationPerPage={3}
         paginationRowsPerPageOptions={[3, 10, 20]}
-      />
+      /> */}
+      <WorkList />
     </TableBox>
   );
 }
